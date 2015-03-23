@@ -11,10 +11,10 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "kecik/kecik": "1.*"
+        "kecik/kecik": "1.0-alpha"
     },
     "autoload": {
         "psr-4": {"Kecik\\": "Session/"}
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev-master"
 }
