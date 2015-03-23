@@ -16,5 +16,5 @@
     "autoload": {
         "psr-4": {"Kecik\\": "Session/"}
     },
-    "minimum-stability": "dev-master"
+    "minimum-stability": "dev"
 }
