@@ -81,9 +81,9 @@ require "vendor/autoload.php";
 
 $app = new Kecik\Kecik();
 $session = new Kecik\Session($app);
-session->set('integer', 123);
-session->set('string', 'satu dua tiga');
-session->set('array', array('satu', 'dua', 'tiga'));
+$session->set('integer', 123);
+$session->set('string', 'satu dua tiga');
+$session->set('array', array('satu', 'dua', 'tiga'));
 ```
 
 ### **get()**
@@ -98,9 +98,9 @@ require "vendor/autoload.php";
 
 $app = new Kecik\Kecik();
 $session = new Kecik\Session($app);
-session->set('integer', 123);
-session->set('string', 'satu dua tiga');
-session->set('array', array('satu', 'dua', 'tiga'));
+$session->set('integer', 123);
+$session->set('string', 'satu dua tiga');
+$session->set('array', array('satu', 'dua', 'tiga'));
 
 echo 'session Integer: '.$session->get('integer').'<br />';
 echo 'session String: '.$session->get('string').'<br />';
@@ -120,7 +120,7 @@ require "vendor/autoload.php";
 
 $app = new Kecik\Kecik();
 $session = new Kecik\Session($app);
-session->set('kecik_session', 'ini nilai session nya');
+$session->set('kecik_session', 'ini nilai session nya');
 
 echo 'kecik_session: '.$session->get('kecik_session').'<br />';
 
