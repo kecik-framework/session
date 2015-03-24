@@ -25,6 +25,7 @@ class Session {
 
 	private $key;
 	private $iv;
+	
 	/**
 	 * @var Konstata untuk Limiter Session
 	 **/
