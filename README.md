@@ -8,8 +8,8 @@ Tambahkan baris berikut ini pada file composer.json yang berlokasi pada project 
 ```json
 {
     "require": {
-        "kecik/kecik": "1.0.2-alpha",
-        "kecik/session": "dev-master"
+        "kecik/kecik": "1.0.*@dev",
+        "kecik/session": "1.0.*@dev"
     }
 }
 ```
