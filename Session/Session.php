@@ -1,29 +1,41 @@
 <?php
+/*///////////////////////////////////////////////////////////////
+ /** ID: | /-- ID: Indonesia
+ /** EN: | /-- EN: English
+ ///////////////////////////////////////////////////////////////*/
+
 /**
  * Session - Library untuk framework kecik, library ini khusus untuk membantu masalah session 
  *
  * @author 		Dony Wahyu Isp
  * @copyright 	2015 Dony Wahyu Isp
- * @link 		http://github.io/kecik_session
+ * @link 		http://github.com/kecik-framework/session
  * @license		MIT
- * @version 	1.0-alpha
+ * @version 	1.0.1-alpha
  * @package		Kecik\Session
  **/
 namespace Kecik;
 
 /**
- * Controller
+ * Session
  * @package 	Kecik\Session
  * @author 		Dony Wahyu Isp
- * @since 		1.0-alpha
+ * @since 		1.0.0-alpha
  **/
 class Session {
 	/**
 	 * @var bool $status
 	 **/
-	private $status=FALSE;
+	private $status = FALSE;
+
+	/**
+	 * @var string $key
+	 **/
 
 	private $key;
+	/**
+	 * @var string $iv
+	 **/
 	private $iv;
 	
 	/**
@@ -217,7 +229,7 @@ class Session {
 
 	/**
 	 * clear
-	 * Hapus semua session
+	 * ID: Hapus semua session | EN: Delete all session
 	 **/
 	public function clear() {
 		session_destroy();
@@ -225,7 +237,7 @@ class Session {
 
 	/**
 	 * encrypt
-	 * enkripsi session
+	 * ID: Enkripsi Session | EN: Session Encryption
 	 * @param string $plaintext
 	 * @return string
 	 **/
@@ -239,12 +251,12 @@ class Session {
 			$ciphertext = @mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $this->key, $ciphertext, MCRYPT_MODE_CBC, base64_decode($this->iv));
 		}
 
-		return $ciphertext;
+		return base64_encode($ciphertext);
 	}
 
 	/**
 	 * decrypt
-	 * dekripsi session
+	 * ID: Dekripsi session | EN: Session Decryption
 	 * @param string $ciphertext
 	 * @return mixed
 	 **/
