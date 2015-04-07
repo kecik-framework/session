@@ -1,28 +1,29 @@
 **Kecik Session**
 ==========
-Merupakan pustaka/library yang dibuat khusus Framework Kecik, pustaka/library ini dibuat untuk mempermudah dalam menggunakan session pada project yang kita bangun. Pustaka/Library ini juga mendukung enkripsi data sehingga data session kita aman.
+A library created specifically for Kecik Framework, this library was made to facilitate the use session on project we build. This library also supports data encryption so that we secure the data session.
 
-**Installasi**
+**Installation**
 -----------
-Tambahkan baris berikut ini pada file composer.json yang berlokasi pada project yang ingin kita bangun.
+Add the following line to the file composer.json located on the project we want to build.
 ```json
 {
     "require": {
-        "kecik/kecik": "1.0.*@dev",
-        "kecik/session": "1.0.*@dev"
+        "kecik/kecik": "1.0.2-alpha",
+        "kecik/session": "dev-master"
     }
 }
 ```
 
-Selanjutnya jalan kan perintah 
+Next, run the command
 ```shell
 composer update
 ```
 
-Dan tunggu sampai proses update selesai tanpa error.
-> **Catatan**: Pustaka/Library ini membutuhkan Kecik Framework, jadi kita harus menginstall Kecik Framework terlebih dahulu, baru kita bisa menginstall Pustaka/Library ini.
+And wait until the update process is completed without error.
 
-## **Cara Pakai Pustaka/Library Session**
+> **Note**: This library requires Kecik Framework, so we need to install  Kecik Framework first, then we can install this library.
+
+## **How to use Session Library**
 
 ```php
 <?php
@@ -31,7 +32,7 @@ require "vendor/autoload.php";
 $app = new Kecik\Kecik();
 $session = new Kecik\Session($app);
 ```
-Sedangkan jika inginkan session dalam keadaan terenkripsi maka kita cukup menambahkan config enkripsi
+Whereas if you want the session in an encrypted then we simply add the config encryption
 
 ```php
 <?php
@@ -45,8 +46,8 @@ $session = new Kecik\Session($app);
 ```
 
 ### **id()**
-Fungsi/Method ini digunakan untuk mendapatkan id dari session.
-**contoh**:
+This Function/Method use for get session id.
+**Example**:
 ```php
 <?php
 require "vendor/autoload.php";
@@ -57,8 +58,8 @@ echo $session->id();
 ```
 
 ### **newId()**
-Fungsi/Method ini digunakan untuk membuat id session yang baru.
-**contoh**:
+This Function/Method use to make new session id.
+**Example**:
 ```php
 <?php
 require "vendor/autoload.php";
@@ -70,11 +71,11 @@ echo 'NEW ID SESSION: '.$session->newId().'<br />';
 ```
 
 ### **set()**
-Fungsi /Method ini digunakan untuk membuat/mengupdate sebuah session.
+This Function/Method use for create/update a session.
 ```php
 set(string $name, mixed $value)
 ```
-**contoh**:
+**Example**:
 ```php
 <?php
 require "vendor/autoload.php";
@@ -87,11 +88,11 @@ $session->set('array', array('satu', 'dua', 'tiga'));
 ```
 
 ### **get()**
-Fungsi/Method ini digunakan untuk mendapatkan nilai dari suatu session.
+This Function/Method for get a value from a session.
 ```php
 get(string $name)
 ```
-**Contoh**:
+**Example**:
 ```php
 <?php
 require "vendor/autoload.php";
@@ -109,11 +110,11 @@ print_r($session->get('array'));
 ```
 
 ### **delete()**
-Fungsi/Method ini digunakan untuk menghapus sebuah session.
+This Function/Method use for delete a session.
 ```php
 delete(string $name)
 ```
-**Contoh**:
+**Example**:
 ```php
 <?php
 require "vendor/autoload.php";
@@ -129,8 +130,8 @@ echo 'kecik_session: '.$session->get('kecik_session').'<br />';
 ```
 
 ### **clear()**
-Fungsi/Method ini digunakan untuk menghapus semua session yang ada.
-**Contoh**:
+This Function/Method use for delete all session are exist.
+**Example**:
 ```php
 <?php
 require "vendor/autoload.php";
@@ -142,11 +143,11 @@ $session->clear();
 ```
 
 ### **setExpire()**
-Fungsi/Method ini digunakan untuk melakukan setting kadarluarsa dari session.
+This Function/Method use for setting expiry from session.
 ```php
 setExpire(int $minute);
 ```
-**Contoh**:
+**Example**:
 ```php
 <?php
 require "vendor/autoload.php";
@@ -158,8 +159,8 @@ $session->setExpire(60);  //session akan kadarluarsa setelah 60 menit/1 jam
 ```
 
 ### **getExpire()**
-Fungsi/Method ini untuk mendapatkan nilai mengenai berapa lama session tersebut akan bertahan atau akan kadarluarsa.
-**Contoh**:
+This Function/Method use for get value expiry session.
+**Example**:
 ```php
 <?php
 require "vendor/autoload.php";
