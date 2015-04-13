@@ -97,10 +97,11 @@ class Session {
 	 * newIV
 	 **/
 	public function newIV() {
-		$this->iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+		$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
+        $this->iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
         $this->iv = base64_encode($this->iv);
-        setcookie('eivk'.md5($app->url->baseUrl()), $this->iv, 0, '/');
         $_SESSION['eivk'.md5($app->url->baseUrl())] = $this->iv;
+        setcookie('eivk'.md5($app->url->baseUrl()), $this->iv, 0, '/');
 	}
 
 	/**
