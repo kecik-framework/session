@@ -71,8 +71,8 @@ class Session {
 			if (empty($_SESSION['eivk'.md5($app->url->baseUrl())]) || !ctype_print($_SESSION['eivk'.md5($app->url->baseUrl())]))
 				unset($_COOKIE['eivk'.md5($app->url->baseUrl())]);
 			
-			$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
-            $this->iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+			if (empty($this->get('eivk'.md5($app->url->baseUrl()))) || !ctype_print($this->get('eivk'.md5($app->url->baseUrl()))))
+				unset($_SESSION['eivk'.md5($app->url->baseUrl())]);
 
             if (empty($_SESSION['eivk'.md5($app->url->baseUrl())]) && empty($_COOKIE['eivk'.md5($app->url->baseUrl())])) {
 				$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
@@ -91,6 +91,16 @@ class Session {
         	}
 		}
 
+	}
+
+	/**
+	 * newIV
+	 **/
+	public function newIV() {
+		$this->iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+        $this->iv = base64_encode($this->iv);
+        setcookie('eivk'.md5($app->url->baseUrl()), $this->iv, 0, '/');
+        $_SESSION['eivk'.md5($app->url->baseUrl())] = $this->iv;
 	}
 
 	/**
