@@ -1,6 +1,6 @@
 {
     "name": "kecik/session",
-    "description": "Session Class untuk Kecik Framework",
+    "description": "Session Libraries for Kecik Framework",
     "keywords": ["kecik", "framework", "session"],
     "license": "MIT",
     "authors": [
