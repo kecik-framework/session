@@ -60,10 +60,12 @@ class Session {
 	public function __construct(Kecik $app) {
 		session_start();
 		$config = $app->config;
-		if ( empty( $this->status = $config->get('session.encrypt') ) )
+		$this->status = $config->get('session.encrypt');
+		if ( empty( $this->status ) )
 			$this->status = FALSE;
 		else { 
-			if ( empty( $key = $config->get('session.encrypt.key') ) )
+			$key = $config->get('session.encrypt.key');
+			if ( empty( $key ) )
 				$this->key = pack('H*', $key);
 			else
 				$this->key = pack('H*', "bcb04b7e103a0cd8b54763051cef08bc55abe029fdebae5e1d417e2ffb2a00a3");
