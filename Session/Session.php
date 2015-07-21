@@ -57,7 +57,8 @@ class Session {
  	 * __construct
  	 * @param Kecik $app
  	 **/
-	public function __construct(Kecik $app) {
+	public function __construct() {
+		$app = Kecik::getInstance();
 		session_start();
 		$config = $app->config;
 		$this->status = $config->get('session.encrypt');
